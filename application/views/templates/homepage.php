@@ -49,7 +49,7 @@
 
           <?php foreach ($barang as $brg) : ?>
 
-            <div class="col-lg-4 col-md-6 mb-4">
+            <div class="col-lg-4 col-md-4 col-sm-6 mb-4">
               <div class="card h-100">
                 <a href="#"><img class="card-img-top" src="<?= base_url().'/uploads/'.$brg->gambar ?>" alt="produk"></a>
                 <div class="card-body">
