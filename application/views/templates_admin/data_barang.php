@@ -1,7 +1,11 @@
 <main>
   <div class="container-fluid">
 
-    <!-- <button type="button" class="btn btn-primary btn-sm mt-4"><i class="fas fa-plus fa-sm"></i>Tambah barang</button> -->
+    <h4 class="mb-5 mt-4"><i class="fas fa-box mr-3"></i>Data Barang Yang Di Posting</h4>
+    <a class="btn btn-primary" href="<?= base_url() ?>home" role="button">
+      Lihat Website
+      <i class="ml-2 fas fa-external-link-alt"></i>
+    </a>
 
     <table class="table table-bordered mt-4">
       <tr>
