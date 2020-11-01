@@ -16,10 +16,7 @@
         <label class="mt-3" >Stok</label>
         <input type="text" name="stok" class="form-control col-lg-4">
         <label class="mt-3" >Gambar</label>
-        <div class="custom-file">
-          <input type="file" class="custom-file-input" id="gambar">
-          <label class="custom-file-label" for="gambar">Pilih file...</label>
-        </div>
+        <input type="file" name="userfile">
         <button type="submit" class="btn btn-primary mt-5 mr-3"><i class="fas fa-check mr-2"></i>Simpan</button>
         <button type="reset" class="btn btn-primary mt-5"><i class="fas fa-redo mr-2"></i>Reset</button>
       </div>
