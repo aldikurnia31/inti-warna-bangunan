@@ -26,8 +26,15 @@
         <td>Rp.<?= $brg->harga; ?></td>
         <td><?= $brg->stok; ?></td>
         <td> <button type="button" class="btn btn-success btn-sm"> <i class="fas fa-search"></i></button></td>
-        <td> <button type="button" class="btn btn-danger btn-sm"> <i class="fas fa-trash-alt"></i></button></td>
-        <td> <button type="button" class="btn btn-primary btn-sm"> <i class="fas fa-pen"></i></button></td>
+        <td>
+          <?= anchor('data_barang/hapus/' . $brg->id_barang,
+          '<button type="button" class="btn btn-danger btn-sm"> <i class="fas fa-trash-alt"></i></button>') ?>
+
+        </td>
+        <td>
+          <?= anchor('data_barang/edit/' . $brg->id_barang,
+          '<button type="button" class="btn btn-primary btn-sm"><i class="fas fa-pen"></i></button>'); ?>
+        </td>
       </tr>
 
     <?php endforeach; ?>
