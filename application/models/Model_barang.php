@@ -13,4 +13,21 @@ class Model_barang extends CI_Model {
     $this->db->insert($table, $data);
   }
 
+  public function edit_barang($where, $table)
+  {
+    return $this->db->get_where($table, $where);
+  }
+
+  public function update_barang($where, $data, $table)
+  {
+    $this->db->where($where);
+    $this->db->update($table, $data);
+  }
+
+  public function hapus_barang($Where, $table)
+  {
+    $this->db->where($where);
+    $this->db->delete($table);
+  }
+
 }
