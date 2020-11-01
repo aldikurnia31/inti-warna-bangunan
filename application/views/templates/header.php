@@ -40,6 +40,9 @@
           <li class="nav-item">
             <a class="nav-link" href="#">Kontak</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="<?= base_url('login_page')?>">Login</a>
+          </li>
         </ul>
       </div>
     </div>

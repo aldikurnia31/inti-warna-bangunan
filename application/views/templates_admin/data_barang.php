@@ -2,7 +2,10 @@
   <div class="container-fluid">
 
     <!-- <button type="button" class="btn btn-primary btn-sm mt-4"><i class="fas fa-plus fa-sm"></i>Tambah barang</button> -->
-
+  
+      <?= anchor('tambah_barang',
+          '<button type="button" class="btn btn-primary mt-5 mr-3"><i class="fas fa-plus mr-2"></i>Tambah Barang</button>') ?>
+    
     <table class="table table-bordered mt-4">
       <tr>
         <th>No.</th>
