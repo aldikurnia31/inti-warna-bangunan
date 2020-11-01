@@ -19,20 +19,10 @@ class Tambah_barang extends CI_Controller {
     $kategori = $this->input->post('kategori');
     $harga = $this->input->post('harga');
     $stok = $this->input->post('stok');
-    $gambar = $_FILES['gambar']['name'];
-    if($gambar = ''){
+    $file = $this->request->getfile('gambar');
 
-    } else {
-      $config['upload_path'] = './uploads';
-      $config['allowed'] = 'jpg|jpeg|png';
+    dd($gambar);
 
-      $this->load->library('upload', $config);
-      if(!$this->upload->do_upload('gambar')){
-        echo "Gambar gagal di upload!";
-      } else {
-        $gambar = $this->upload->data('file_name');
-      }
-    }
     $data = array(
       'nama' => $nama,
       'keterangan' => $keterangan,
