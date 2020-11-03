@@ -8,6 +8,16 @@ class Model_barang extends CI_Model {
     return $this->db->get('barang');
   }
 
+  public function get_mahasiswa_list($limit, $start)
+  {
+      return $this->db->get('barang', $limit, $start)->result_array();
+  }
+
+  public function hitung_data()
+  {
+    return $this->db->get('barang')->num_rows();
+  }
+
   public function tambah_barang($data, $table)
   {
     $this->db->insert($table, $data);

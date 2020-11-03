@@ -51,13 +51,13 @@
 
             <div class="col-lg-4 col-md-4 col-sm-6 mb-4">
               <div class="card h-100">
-                <a href="#"><img class="card-img-top" src="<?= base_url().'/uploads/'.$brg->gambar ?>" alt="produk"></a>
+                <a href="#"><img class="card-img-top" src="<?= base_url().'/uploads/'.$brg['gambar']; ?>" alt="produk"></a>
                 <div class="card-body">
                   <h4 class="card-title">
-                    <a href="#"><?= $brg->nama; ?></a>
+                    <a href="#"><?= $brg['nama']; ?></a>
                   </h4>
-                  <h4><span class="badge badge-pill badge-success">Rp.<?= $brg->harga; ?></span></h4>
-                  <p class="card-text"><?= $brg->keterangan; ?></p>
+                  <h4><span class="badge badge-pill badge-success">Rp.<?= $brg['harga']; ?></span></h4>
+                  <p class="card-text"><?= $brg['keterangan']; ?></p>
                 </div>
               </div>
             </div>
@@ -66,6 +66,12 @@
 
         </div>
         <!-- /.row -->
+
+        <div class="row">
+          <div class="col">
+            <?= $this->pagination->create_links(); ?>
+          </div>
+        </div>
 
       </div>
       <!-- /.col-lg-9 -->
