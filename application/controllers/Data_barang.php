@@ -7,6 +7,7 @@ class Data_barang extends CI_Controller {
   {
     $data['title'] = 'Admin IWB';
     $data['barang'] = $this->model_barang->tampil_data()->result();
+
     $this->load->view('templates_admin/header', $data);
     $this->load->view('templates_admin/sidebar');
     $this->load->view('templates_admin/data_barang', $data);
@@ -17,6 +18,7 @@ class Data_barang extends CI_Controller {
   {
     $where = array('id_barang' => $id);
     $data['barang'] = $this->model_barang->edit_barang($where, 'barang')->result();
+    
     $this->load->view('templates_admin/header');
     $this->load->view('templates_admin/sidebar');
     $this->load->view('templates_admin/edit_barang', $data);
