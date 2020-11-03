@@ -6,6 +6,10 @@
       Lihat Website
       <i class="ml-2 fas fa-external-link-alt"></i>
     </a>
+    <a class="ml-5 btn btn-primary text-white" onClick="window.location.reload();" role="button">
+      Refresh
+      <i class="ml-2 fas fa-sync-alt"></i>
+    </a>
 
     <table class="table table-bordered mt-4">
       <tr>
@@ -27,7 +31,7 @@
         <td><?= $brg->nama; ?></td>
         <td><?= $brg->keterangan; ?></td>
         <td><?= $brg->kategori; ?></td>
-        <td>Rp.<?= $brg->harga; ?></td>
+        <td><?= $brg->harga; ?></td>
         <td><?= $brg->stok; ?></td>
         <td> <button type="button" class="btn btn-success btn-sm"> <i class="fas fa-search"></i></button></td>
         <td>
