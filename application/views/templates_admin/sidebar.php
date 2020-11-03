@@ -9,15 +9,14 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-box"></i></div>
                                 Data barang
                             </a>
-                            <a class="nav-link" href="<?= base_url() ?>tambah_barang">
+                            <!-- <a class="nav-link" href="<?= base_url() ?>tambah_barang">
                                 <div class="sb-nav-link-icon"><i class="fas fa-plus"></i></div>
                                 Tambah barang
-                            </a>
+                            </a> -->
                         </div>
                     </div>
                     <div class="sb-sidenav-footer">
                         <div class="small">Logged in as:</div>
-                        Start Bootstrap
                     </div>
                 </nav>
             </div>
