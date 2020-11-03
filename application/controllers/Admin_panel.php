@@ -8,6 +8,7 @@ class Admin_panel extends CI_Controller {
     $data['title'] = 'Admin IWB';
     $this->load->view('templates_admin/header', $data);
     $this->load->view('templates_admin/sidebar');
+    $this->load->view('templates_admin/index');
     $this->load->view('templates_admin/footer');
   }
 
