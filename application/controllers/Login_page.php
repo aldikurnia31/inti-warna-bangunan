@@ -41,19 +41,19 @@ class Login_page extends CI_Controller
                         'role_id' => $user['role_id']
                     ];
                     $this->session->set_userdata($data);
-                    redirect('admin');
+                    redirect('admin_panel');
                 
                 } else {
                     $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Password Salah!</div>');
                     redirect('login_page');
                 }
             } else {
-                $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">This email has not been activated!</div>');
+                $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Email ini belum diaktivasi!</div>');
                 redirect('login_page');
             }
 
         } else {
-            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Email is not rehistered </div>');
+            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Email belum terdaftar </div>');
             redirect('login_page');
         }
     }
@@ -86,8 +86,18 @@ class Login_page extends CI_Controller
             ];
 
             $this->db->insert('admin', $data); //user itu nama table di databasenya
-            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Congratulation! your account has been created. Please Login </div>');
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Selamat! Akunmu berhasil dibuat silahkan Login </div>');
             redirect('login_page');
         }
+    }
+
+    public function logout()
+    {
+        $this->session->unset_userdata('email');
+        $this->session->unset_userdata('role_id');
+
+
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Kamu Berhasil Logout! </div>');
+        redirect('login_page');
     }
 }

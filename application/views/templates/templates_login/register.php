@@ -37,7 +37,7 @@
             <a class="small" href="forgot-password.html">Forgot Password?</a>
           </div>
           <div class="text-center">
-            <a class="small" href="<?= base_url('login_page'); ?>">Already have an account? Login!</a>
+            <a class="small" href="<?= base_url('login_page'); ?>">Sudah punya akun ? Login!</a>
           </div>
         </div>
       </div>
