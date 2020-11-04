@@ -7,7 +7,7 @@
       Lihat Website
       <i class="ml-2 fas fa-external-link-alt"></i>
     </a>
-    <a class="ml-5 btn btn-primary text-white" onClick="window.location.reload();" role="button">
+    <a class="ml-3 btn btn-primary text-white" onClick="window.location.reload();" role="button">
       Refresh
       <i class="ml-2 fas fa-sync-alt"></i>
     </a>
