@@ -3,6 +3,10 @@
 
 
     <h4 class="mb-5 mt-4"><i class="fas fa-box mr-3"></i>Data Barang Yang Di Posting</h4>
+    <a class="mr-3 btn btn-primary" href="<?= base_url('tambah_barang') ?>" role="button">
+      Tambah Barang
+      <i class="ml-2 fas fa-plus"></i>
+    </a>
     <a class="btn btn-primary" href="<?= base_url() ?>home" role="button">
       Lihat Website
       <i class="ml-2 fas fa-external-link-alt"></i>
@@ -12,9 +16,7 @@
       <i class="ml-2 fas fa-sync-alt"></i>
     </a>
 
-  
-      <?= anchor('tambah_barang',
-          '<button type="button" class="btn btn-primary mt-5 mr-3"><i class="fas fa-plus mr-2"></i>Tambah Barang</button>') ?>
+
     
     <table class="table table-bordered mt-4">
       <tr>

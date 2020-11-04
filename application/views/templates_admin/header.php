@@ -33,7 +33,8 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       <i class="fas fa-user fa-fw"></i>
-                     
+                        <!-- <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?= $admin['name']; ?></span>
+                        <img class="img-profile rounded-circle" src="<?= base_url('assets/img/profil/') . $admin['image']; ?>"> -->
                     </a>
                     
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
