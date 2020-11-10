@@ -6,7 +6,7 @@ class Home extends CI_Controller {
   public function index()
   {
     $config['base_url'] = 'http://localhost/inti-warna-bangunan/home/index';
-    $config['total_rows'] = $this->model_barang->hitung_data();
+    $config['total_rows'] = $this->model_barang->hitung_barang();
     $config['per_page'] = 3;
 
     $config['full_tag_open'] = '<nav><ul class="mt-4 mb-5 pagination justify-content-center">';
@@ -38,12 +38,23 @@ class Home extends CI_Controller {
 
     $this->pagination->initialize($config);
 
-    $data['title'] = 'Toko Online';
+    $data['title'] = 'Inti Warna Bangunan';
     $data['start'] = $this->uri->segment(3);
-    $data['barang'] = $this->model_barang->get_mahasiswa_list($config['per_page'], $data['start']);
+    $data['barang'] = $this->model_barang->get_barang($config['per_page'], $data['start']);
+    $data['kategori'] = $this->db->get('kategori')->result_array();
 
     $this->load->view('templates/header', $data);
     $this->load->view('templates/homepage', $data);
+    $this->load->view('templates/footer');
+  }
+
+  public function produk($id)
+  {
+    $data['barang'] = $this->db->get_where('barang', ['id_barang' => $id])->row_array();
+    $data['title'] = 'Inti Warna Bangunan - Produk';
+
+    $this->load->view('templates/header', $data);
+    $this->load->view('templates/detail', $data);
     $this->load->view('templates/footer');
   }
 

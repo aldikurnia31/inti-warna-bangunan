@@ -13,13 +13,13 @@
           <div class="col-lg">
             <div class="p-5">
               <div class="text-center">
-                <h1 class="h4 text-gray-900 mb-4">Login Page</h1>
+                <h1 class="h4 text-gray-900 mb-4">Masuk ke IWB Admin</h1>
               </div>
               <?= $this->session->flashdata('message');?>
-              
+
               <form class="user" method="post" action="<?= base_url('login_page'); ?>">
                 <div class="form-group">
-                  <input type="text" class="form-control form-control-user" id="email" name="email" placeholder="Enter Email Address..." value="<?= set_value('email'); ?>">
+                  <input type="text" class="form-control form-control-user" id="email" name="email" placeholder="Masukan Email..." value="<?= set_value('email'); ?>">
                   <?= form_error('email', '<small class="text-danger pl-3">', '</small>');?>
                 </div>
                 <div class="form-group">
@@ -30,12 +30,12 @@
                   Login
                 </button>
               </form>
-              <hr>
+              <br>
               <div class="text-center">
-                <a class="small" href="forgot-password.html">Forgot Password?</a>
-              </div>
+                <a class="small" href="forgot-password.html"> <h5>Lupa Password</h5> </a>
+              </div> <br>
               <div class="text-center">
-                <a class="small" href="<?= base_url('login_page/registrasi'); ?>">Create an Account!</a>
+                <a class="small" href="<?= base_url('login_page/registrasi'); ?>"> <h5>Buat Akun!</h5> </a>
               </div>
             </div>
           </div>
@@ -48,4 +48,3 @@
 </div>
 
 </div>
-

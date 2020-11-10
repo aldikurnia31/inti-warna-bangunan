@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Login_page extends CI_Controller 
+class Login_page extends CI_Controller
 {
     public function __construct()
     {
@@ -42,7 +42,7 @@ class Login_page extends CI_Controller
                     ];
                     $this->session->set_userdata($data);
                     redirect('admin_panel');
-                
+
                 } else {
                     $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Password Salah!</div>');
                     redirect('login_page');
@@ -61,7 +61,7 @@ class Login_page extends CI_Controller
     public function registrasi(){
         $this->form_validation->set_rules('name', 'Name', 'required|trim');
         $this->form_validation->set_rules('email','Email','required|trim|valid_email|is_unique[admin.email]', [
-            'is_unique' => 'Email ini sudah terdaftar!' 
+            'is_unique' => 'Email ini sudah terdaftar!'
         ]);
         $this->form_validation->set_rules('password1', 'Password', 'required|trim|min_length[3]|matches[password2]',[
             'matches' => 'Password dont match!',
@@ -69,7 +69,7 @@ class Login_page extends CI_Controller
         ]);
         $this->form_validation->set_rules('password2', 'Password', 'required|trim|matches[password1]');
         if($this->form_validation->run() == false){
-            
+
             $data['title'] = 'Register Page';
             $this->load->view('templates/header', $data);
             $this->load->view('templates/templates_login/register');
@@ -86,7 +86,7 @@ class Login_page extends CI_Controller
             ];
 
             $this->db->insert('admin', $data); //user itu nama table di databasenya
-            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Selamat! Akunmu berhasil dibuat silahkan Login </div>');
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Akun anda berhasil dibuat, silahkan Login</div>');
             redirect('login_page');
         }
     }
@@ -97,7 +97,7 @@ class Login_page extends CI_Controller
         $this->session->unset_userdata('role_id');
 
 
-        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Kamu Berhasil Logout! </div>');
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Berhasil keluar</div>');
         redirect('login_page');
     }
 }

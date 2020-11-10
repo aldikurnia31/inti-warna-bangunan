@@ -3,56 +3,77 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Data_barang extends CI_Controller {
 
+  public function __construct()
+  {
+    parent::__construct();
+    sudah_login();
+  }
+
   public function index()
   {
     $data['title'] = 'Admin IWB';
-    $data['barang'] = $this->model_barang->tampil_data()->result();
+    $data['barang'] = $this->model_barang->tampil_data();
+    $data['admin'] = $this->db->get_where('admin', ['email' => $this->session->userdata('email')])->row_array();
 
     $this->load->view('templates_admin/header', $data);
-    $this->load->view('templates_admin/sidebar');
+    $this->load->view('templates_admin/sidebar', $data);
     $this->load->view('templates_admin/data_barang', $data);
     $this->load->view('templates_admin/footer');
   }
 
-  public function edit($id)
+  public function edit_data($id)
   {
-    $where = array('id_barang' => $id);
-    $data['barang'] = $this->model_barang->edit_barang($where, 'barang')->result();
-    
-    $this->load->view('templates_admin/header');
-    $this->load->view('templates_admin/sidebar');
-    $this->load->view('templates_admin/edit_barang', $data);
+    $data['barang'] = $this->model_barang->tampil_data_id($id);
+    $data['title'] = 'IWB Admin';
+    $data['admin'] = $this->db->get_where('admin', ['email' => $this->session->userdata('email')])->row_array();
+    $data['kategori'] = $this->db->get('kategori')->result_array();
+
+    $this->form_validation->set_rules('nama', 'Nama', 'required');
+    $this->form_validation->set_rules('keterangan', 'Keterangan', 'required');
+    $this->form_validation->set_rules('kategori', 'Kategori', 'required');
+    $this->form_validation->set_rules('harga', 'Harga', 'required|numeric');
+    $this->form_validation->set_rules('nama', 'Name', 'required');
+    $this->form_validation->set_rules('stok', 'Stok', 'required|numeric');
+
+    if($this->form_validation->run() == FALSE){
+      $this->load->view('templates_admin/header', $data);
+      $this->load->view('templates_admin/sidebar', $data);
+      $this->load->view('templates_admin/edit_barang', $data);
+      $this->load->view('templates_admin/footer');
+    } else {
+      $this->model_barang->edit();
+    }
+  }
+
+  public function hapus_data($id)
+  {
+    $this->model_barang->hapus($id);
+  }
+
+  public function detail_data($id)
+  {
+    $data['barang'] = $this->model_barang->tampil_data_id($id);
+    $data['title'] = 'IWB Admin';
+    $data['admin'] = $this->db->get_where('admin', ['email' => $this->session->userdata('email')])->row_array();
+
+    $this->load->view('templates_admin/header', $data);
+    $this->load->view('templates_admin/sidebar', $data);
+    $this->load->view('templates_admin/detail_barang', $data);
     $this->load->view('templates_admin/footer');
   }
 
-  public function update()
+  public function pencarian()
   {
-    $id = $this->input->post('id_barang');
-    $nama = $this->input->post('nama');
-    $keterangan = $this->input->post('keterangan');
-    $kategori = $this->input->post('kategori');
-    $harga = $this->input->post('harga');
-    $stok = $this->input->post('stok');
+    $keyword = $this->input->post('keyword');
 
-    $data = array(
-      'nama' => $nama,
-      'keterangan' => $keterangan,
-      'kategori' => $kategori,
-      'harga' => $harga,
-      'stok' => $stok
-    );
+    $data['admin'] = $this->db->get_where('admin', ['email' => $this->session->userdata('email')])->row_array();
+    $data['title'] = 'IWB Admin';
+    $data['barang'] = $this->model_barang->get_barang_keyword($keyword);
+    $data['keyword'] = $this->input->post('keyword');
 
-    $where = array('id_barang' => $id);
-
-    $this->model_barang->update_barang($where, $data, 'barang');
-    redirect('data_barang/index');
-
-  }
-
-  public function hapus($id)
-  {
-    $where = array('id_barang' => $id);
-    $this->model_barang->hapus_barang($where, 'barang');
-    redirect('data_barang/index');
+    $this->load->view('templates_admin/header', $data);
+    $this->load->view('templates_admin/sidebar', $data);
+    $this->load->view('templates_admin/hasil_pencarian', $data);
+    $this->load->view('templates_admin/footer');
   }
 }
