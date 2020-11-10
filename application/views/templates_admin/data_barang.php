@@ -7,7 +7,7 @@
       Tambah Barang
       <i class="ml-2 fas fa-plus"></i>
     </a>
-    <a class="btn btn-primary" href="<?= base_url() ?>home" role="button">
+    <a class="btn btn-primary" href="<?= base_url() ?>home" role="button" target="_blank">
       Lihat Website
       <i class="ml-2 fas fa-external-link-alt"></i>
     </a>
